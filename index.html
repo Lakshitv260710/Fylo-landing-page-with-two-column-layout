@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Frontend Mentor | Fylo Landing Page</title>
+  <style>
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+}
+
+.header-logo {
+  width: 120px;
+}
+
+.header-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+}
+
+.header-list li {
+  margin-left: 25px;
+}
+
+.header-list a {
+  text-decoration: none;
+  color: #B5B4C5;
+  font-weight: bold;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.header-list a:hover {
+  color: #8887A3;
+  opacity: 0.8;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 60px 50px;
+}
+
+.content-left {
+  max-width: 50%;
+}
+
+.content-left h1 {
+  font-size: 28px;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.content-left p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+.content-left .input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.content-left input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 60%;
+  background-color: white;
+  color: black;
+}
+
+.content-left button {
+  padding: 12px 20px;
+  font-size: 14px;
+  border: none;
+  background-color: #6B9BFF;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.content-left button:hover {
+  background-color: darkblue;
+}
+
+.content-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 45%;
+}
+
+.content-right img {
+  max-width: 70%;
+  margin-right: 20px; /* Adjusted to move image slightly away from the right corner */
+}
+
+@media screen and (max-width: 768px) {
+  /* Change flex direction on mobile for header */
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-content {
+    flex-direction: column-reverse; /* Right section goes above the left section */
+    align-items: center;
+    margin: 30px 20px; /* Adjust margin for mobile */
+  }
+
+  .content-right img {
+    max-width: 90%; /* Increase the image size */
+    margin-right: 0; /* Remove right margin */
+  }
+
+  /* Adjust padding for sections */
+  .additional-section,
+  .new-section {
+    padding: 20px 30px;
+    flex-direction: column; /* Stack content vertically */
+  }
+
+  /* Compact text adjustments for mobile */
+  .content-left h1 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .content-left p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .content-left .input-container input {
+    font-size: 13px;
+    padding: 6px;
+  }
+
+  .content-left .input-container button {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+  /* Compact text adjustments for additional section */
+  .additional-section .content-left h1 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .additional-section .content-left p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .testimonial-section p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .testimonial-section .testimonial-text h2 {
+    font-size: 16px;
+  }
+
+  .testimonial-section .testimonial-text .role-text {
+    font-size: 12px;
+  }
+
+  /* New section text adjustments */
+  .new-section .left-section h1 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .new-section .left-section p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .new-section .right-section input {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .new-section .right-section button {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+  /* Remove space between content and corners for mobile in the new-section */
+  .new-section {
+    padding: 20px; /* Reduced padding for mobile */
+    margin: 0; /* Removed top margin for tighter layout */
+  }
+
+  .new-section .left-section,
+  .new-section .right-section {
+    padding: 0; /* Remove additional padding from sections */
+    margin: 0; /* Remove margin for tighter spacing */
+  }
+}
+
+.additional-section {
+  background-color: #F9F8FE;
+  padding: 40px 60px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.additional-section .content-left h1 {
+  font-size: 28px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.additional-section .content-left p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.additional-section .content-right img {
+  max-width: 80%;
+}
+
+/* Mobile version: Make the right section of the additional section appear above the left section */
+@media screen and (max-width: 768px) {
+  .additional-section {
+    flex-direction: column-reverse; /* Right section goes above the left section */
+    align-items: center;
+    text-align: center;
+  }
+
+  .additional-section .content-left {
+    max-width: 100%;
+    margin-top: 30px; /* Added margin to move the content a bit lower */
+  }
+
+  .additional-section .content-right {
+    max-width: 100%;
+  }
+}
+
+.testimonial-section {
+  background-color: white;
+  padding: 20px 30px; /* Reduced padding to decrease size */
+  width: 90%; /* Reduced width to make the testimonial section smaller */
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Retained shadow */
+}
+
+.testimonial-section p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.testimonial-section img {
+  max-width: 60px;
+  border-radius: 50%;
+  margin-bottom: 20px; /* Added space between paragraph and image */
+}
+
+.testimonial-section .testimonial-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-section .testimonial-text h2 {
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  margin: 0;
+}
+
+.testimonial-section .testimonial-text p {
+  font-size: 14px;
+  color: #777;
+}
+
+.testimonial-section a:hover {
+  color: cyan;
+}
+
+.new-section {
+  background-color: #575988;
+  padding: 40px 60px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-section .left-section {
+  max-width: 50%;
+  color: white;
+}
+
+.new-section .left-section h1 {
+  font-size: 28px;
+  line-height: 1.5;
+}
+
+.new-section .left-section p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.new-section .right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 40%;
+}
+
+.new-section .right-section input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.new-section .right-section button {
+  padding: 12px 20px;
+  font-size: 14px;
+  border: none;
+  background-color: #6B9BFF;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-section .right-section button:hover {
+  background-color: darkblue;
+}
+
+footer {
+  background-color: #07043B;
+  padding: 60px 50px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .footer-left,
+footer .footer-center-left,
+footer .footer-center-right,
+footer .footer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+footer .footer-left {
+  align-items: flex-start;
+  margin-right: 50px;
+}
+
+footer .footer-left img {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+footer .footer-center-left ul,
+footer .footer-center-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer .footer-center-left li,
+footer .footer-center-right li {
+  margin-bottom: 10px;
+}
+
+footer .footer-center-left a,
+footer .footer-center-right a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .footer-center-left a:hover,
+footer .footer-center-right a:hover {
+  color: #003cbd;
+}
+
+footer .footer-right img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-center-left, .footer-center-right, .footer-right {
+    flex: unset;
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="./images/logo.svg" alt="Fylo Logo" class="header-logo">
+    <ul class="header-list">
+      <li><a href="#">Feature</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Sign In</a></li>
+    </ul>
+  </header>
+
+  <main class="main-content">
+    <div class="content-left">
+      <h1>Store your files in a secure place</h1>
+      <p>Fylo stores all your most important files in one secure location. Access them wherever you go, and share them with others easily.</p>
+      <div class="input-container">
+        <input type="email" placeholder="Enter your email">
+        <button>Get Started For Free</button>
+      </div>
+    </div>
+    <div class="content-right">
+      <img src="./images/illustration-1.svg" alt="Illustration showing file storage">
+    </div>
+  </main>
+
+  <section class="additional-section">
+    <div class="content-left">
+      <h1>Stay productive, wherever you are</h1>
+      <p>Never let location be an issue when accessing your files. Fylo has you covered for all of your file storage needs.</p>
+      <p>Securely share files and folders with friends, family and colleagues for live collaboration. No email attachments required!</p>
+      
+      <div class="testimonial-section">
+        <img src="./images/icon-quotes.svg" alt="">
+        <p>Fylo has improved our team productivity by an order of magnitude. Since making the switch, our team has become a well-oiled collaboration machine.</p>
+
+        <div class="testimonial-inner-section">
+          <img src="./images/avatar-testimonial.jpg" alt="Kyle Burton">
+          <div class="testimonial-text">
+            <h2>Kyle Burton</h2>
+            <p class="role-text">Founder & CEO, Huddle</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-right">
+      <img src="./images/illustration-2.svg" alt="Illustration showing productivity">
+    </div>
+  </section>
+
+  <section class="new-section">
+    <div class="left-section">
+      <h1>Get early access today</h1>
+      <p>It only takes a minute to sign up, and our free starter tier is extremely generous. If you have any questions, our support team would be happy to help you.</p>
+    </div>
+    <div class="right-section">
+      <input type="email" placeholder="Enter your email">
+      <button>Get Started For Free</button>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">
+      <img src="./images/Screenshot 2025-01-25 105127.png" alt="Fylo Logo" class="footer-logo" width="500px">
+      <p>Phone: +1-543-123-4567</p>
+      <p>Email - example@fylo.com</p>
+    </div>
+    <div class="footer-center-left">
+      <ul>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Jobs</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-center-right">
+      <ul>
+        <li><a href="#">Contact us</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Privacy</a></li>
+      </ul>
+    </div>
+    <div class="footer-right">
+      <img src="./images/Screenshot 2025-01-25 105149.png" alt="Custom Image" width="100%">
+    </div>
+  </footer>
+  
+
+  <p class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </p>
+</body>
+</html>
